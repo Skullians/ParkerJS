@@ -1,0 +1,16 @@
+{
+  "name": "parkerjs",
+  "version": "0.0.1",
+  "description": "An advanced help bot.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Skullians",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "js-yaml": "^4.1.0",
+    "tesseract.js": "^5.0.4"
+  }
+}
