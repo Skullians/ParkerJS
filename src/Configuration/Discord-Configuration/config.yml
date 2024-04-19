@@ -1,0 +1,31 @@
+#  _____  _                       _    _____             __ _       
+# |  __ \(_)                     | |  / ____|           / _(_)      
+# | |  | |_ ___  ___ ___  _ __ __| | | |     ___  _ __ | |_ _  __ _ 
+# | |  | | / __|/ __/ _ \| '__/ _` | | |    / _ \| '_ \|  _| |/ _` |
+# | |__| | \__ \ (_| (_) | | | (_| | | |___| (_) | | | | | | | (_| |
+# |_____/|_|___/\___\___/|_|  \__,_|  \_____\___/|_| |_|_| |_|\__, |
+#                                                              __/ |
+#                                                             |___/ 
+
+# This is the Discord Bot Config. It contains all the configuration for the bot.
+
+bot_token: "" # This is Important! It must be filled in.
+
+guild_id: "" # The Guild ID that your bot is in. Maximum 1. Must be a String (e.g. "1075368155235034433")
+listening_channels: [""] # All Channel IDs that the bot will listen to. Set to an empty array (default) to listen to all channels.
+
+Colors: # Embed Colors
+  successColor: "00D26A"
+  warningColor: "FFCC4D"
+  errorColor: "FB2F61"
+
+Messages: # Default discord messages, e.g. for if you don't have perms for that command etc etc.
+  notYourButton: "`🚫` You can't use this button!"
+
+  errorMessage: "`⚠️` Oops.. Something went wrong. Please contact the staff team."
+
+  noPermissions: "`🚫` Hey! You don't have the permissions to do that!"
+  botNoPermissions: "`⚠️` Well this is awkward... I don't have the permissions to do this."
+
+  
+  
