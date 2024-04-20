@@ -8,7 +8,7 @@ module.exports = async (client) => {
     try {
         const locCommands = commandsUtility.getLocalCommands();
         const appCommands = await commandsUtility.getCommands(client, ConfigParser.getBotConfig().guild_id);
-        
+
         for (const command of locCommands) {
             const { data } = command;
 
@@ -32,17 +32,17 @@ module.exports = async (client) => {
 
                     log.log(`Edited application command ${commandName}.`)
                     console.log(`[ParkerJS] `.green + "Edited application command [".gray + `${commandName}`.yellow + `].`.gray);
-                } else {
-                    if (command.deleted) {
-                        log.log(`Skipped application command ${commandName} as it has been set to deleted.`)
-                        continue;
-                    }
-
-                    await appCommands.create({ name: commandName, description: commandDesc, options: commandOptions });
-                    log.log("[ParkerJS] ".green + `Registered application command [`.yellow + `${commandName}`.green + `].`.yellow)
-
-                    console.log("[ParkerJS] ".green + `Registered application command [`.yellow + `${commandName}`.green + `].`.yellow);
                 }
+            } else {
+                if (command.deleted) {
+                    log.log(`Skipped application command ${commandName} as it has been set to deleted.`)
+                    continue;
+                }
+
+                await appCommands.create({ name: commandName, description: commandDesc, options: commandOptions });
+                log.log(`Registered application command [${commandName}].`)
+
+                console.log("[ParkerJS] ".green + `Registered application command [`.yellow + `${commandName}`.green + `].`.yellow);
             }
         }
     } catch (err) {

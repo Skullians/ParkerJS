@@ -9,7 +9,7 @@ function compareCommands(existing, local) {
 
     if (hasChanged(existing.name, local.data.name) || hasChanged(existing.description || undefined, local.data.description || undefined)) return true;
 
-    const changedOptions = changeed(
+    const changedOptions = hasChanged(
         optionsArray(existing),
         optionsArray(local.data)
     );

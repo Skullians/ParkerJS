@@ -11,19 +11,30 @@
 
 mentions:
   mention:
-    reaction:
+    reactions:
       - 👋
       - ❓
     responses:
       - "Hey! How's it going?"
-      - "If you're having trouble, send a message in the help channel and I'll do my best to help!"
+      - "If you're having trouble, send a message in the help channel(s) and I'll do my best to help!"
 
 keywords:
-  keyword: "This operation was disabled" # can be uppercase or lowercase, doesn't matter as the bot automatically handles it.
-  reaction:
-    - 💪
-  response:
-    - "This solution applies only if you are running **Canary**."
-    - "Set `BotCheck` to **false** in the Moonlight Config."
-    - "\nYou can find the config at `/var/lib/docker/volumes/moonlight/_data/configs/config.json`"
-    - "Then restart Moonlight with `docker restart moonlight`"
+  - keyword: "This operation was disabled" # can be uppercase or lowercase, doesn't matter as the bot automatically handles it.
+    reactions:
+      - 💡
+    response:
+      - "This solution applies only if you are running **Canary**." # These are all sent in one message. It just makes it easier to configure.
+      - "Set `BotCheck` to **false** in the Moonlight Config." # Every message is automatically connected. Every line is a new line.
+      - "\nYou can find the config at `/var/lib/docker/volumes/moonlight/_data/configs/config.json`."
+      - "Then restart Moonlight with `docker restart moonlight`."
+      - "Enjoy!"
+
+  - keyword: "API rate limit exceeded"
+    reactions:
+      - ❗
+      - 🤔
+    response:
+      - "Hey, looks like you've been ratelimited by GitHub.\n"
+      - "Moonlight uses GitHub to sync its [Resources](https://github.com/Moonlight-Panel/Resources)."
+      - "If you want to fix this, you can either wait for the ratelimit to pass, or sync them manually (see below).\n"
+      - "Run this command: `git clone https://github.com/Moonlight-Panel/Resources /var/lib/docker/volumes/moonlight/_data/resources/`"  

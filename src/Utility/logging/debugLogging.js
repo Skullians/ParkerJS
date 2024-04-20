@@ -2,14 +2,14 @@ require("colors")
 const fs = require("fs");
 const path = require("path");
 
-const logFilePath = "./src/Logs/general.log"
+const logFilePath = "./src/Logs/debug.log"
 
 const loggingManager = {
     log: function (message) {
         const logMessage = `${new Date().toISOString()} - INFO: ${message}\n`;
         fs.appendFile(logFilePath, logMessage, (err) => {
             if (err) {
-                console.log(`[ParkerJS] `.green + ` An unexpected error occurred when writing to log file [general.log]: `, err);
+                console.log(`[ParkerJS] `.green + ` An unexpected error occurred when writing to log file [debug.log]: `, err);
             }
         })
     },
@@ -18,7 +18,7 @@ const loggingManager = {
         const errorLogMessage = `\n------------------------- ERROR -------------------------\n${new Date().toISOString()} - ${errorMessage}\n------------------------- ERROR -------------------------\n\n`;
         fs.appendFile(logFilePath, errorLogMessage, (err) => {
             if (err) {
-                console.log(`[ParkerJS] `.green + ` An unexpected error occurred when writing to log file [general.log]: `, err);
+                console.log(`[ParkerJS] `.green + ` An unexpected error occurred when writing to log file [debug.log]: `, err);
             }
         })
     },
@@ -26,7 +26,7 @@ const loggingManager = {
     newSession: function () {
         fs.appendFile(logFilePath, "\n------------------------- NEW SESSION -------------------------\n", (err) => {
             if (err) {
-                console.log(`[ParkerJS] `.green + ` An unexpected error occurred when writing to log file [general.log]: `, err);
+                console.log(`[ParkerJS] `.green + ` An unexpected error occurred when writing to log file [debug.log]: `, err);
             }
         })
     },
@@ -34,7 +34,7 @@ const loggingManager = {
     reloadSession: function() {
         fs.appendFile(logFilePath, "\n------------------------- BOT RELOADED -------------------------\n", (err) => {
             if (err) {
-                console.log(`[ParkerJS] `.green + ` An unexpected error occurred when writing to log file [general.log]: `, err);
+                console.log(`[ParkerJS] `.green + ` An unexpected error occurred when writing to log file [debug.log]: `, err);
             }
         })
     }

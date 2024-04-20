@@ -29,6 +29,14 @@ const loggingManager = {
                 console.log(`[ParkerJS] `.green + ` An unexpected error occurred when writing to log file [discord.log]: `, err);
             }
         })
+    },
+
+    reloadSession: function() {
+        fs.appendFile(logFilePath, "\n------------------------- BOT RELOADED -------------------------\n", (err) => {
+            if (err) {
+                console.log(`[ParkerJS] `.green + ` An unexpected error occurred when writing to log file [discord.log]: `, err);
+            }
+        })
     }
 }
 module.exports = { loggingManager };
