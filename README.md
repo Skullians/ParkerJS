@@ -1,59 +1,4 @@
                         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 <br/>
 <div align="center">
 
@@ -127,6 +72,6 @@ The bot should start up with no problems.
 - [x] Application Commands (WIP)
    - [x] Config reload command
    - [x] Blacklist User command
-   - [] something else?
+   - [ ] something else?
 
 See the [open issues](https://github.com/Skullians/ParkerJS/issues) for a full list of proposed features (and known issues).
