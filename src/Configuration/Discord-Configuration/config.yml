@@ -26,3 +26,7 @@ Messages: # Default discord messages, e.g. for if you don't have perms for that 
 
   noPermissions: "`🚫` Hey! You don't have the permissions to do that!"
   botNoPermissions: "`⚠️` Well this is awkward... I don't have the permissions to do this."
+
+Settings:
+  analysisLimit: 2 # How many solutions can be presented per message.
+  analysisSplit: "\n\n\n" # If analysisLimit > 1, what will the solution messages be split by?

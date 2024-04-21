@@ -13,10 +13,11 @@ module.exports = async (client, message) => {
 
     const data = await parsingMain.parseMessage(message.content, message.attachments);
     if (data === null) {
+        console.log(`[ParkerJS] `.green + `Did not match any keywords / phrases / patterns with message. Checking for mention.`.gray)
         return hasMentioned(message, client)
     }
     
-    message.reply({ content: data.message[0] })
+    message.reply({ content: data.message })
     data.reactions.forEach((reaction) => {
         message.react(reaction);
     })
