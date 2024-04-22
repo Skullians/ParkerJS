@@ -1,22 +1,12 @@
-                        
-<br/>
-<div align="center">
 
-<h3 align="center">ParkerJS</h3>
-<p align="center">
-ParkerJS is an attempt to replicate the features of [parkervcp/parkertron](https://github.com/parkervcp/parkertron) in Node.JS.
-
-<br/>
-<br/>
-  
-<a href="https://github.com/Skullians/ParkerJS/issues/new?labels=bug&template=bug-report---.md">Report Bug .</a>
-<a href="https://github.com/Skullians/ParkerJS/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-</p>
 </div>
 
  ## About The Project
 
 ![ ](https://socialify.git.ci/Skullians/ParkerJS/image?description=1&descriptionEditable=The%20Node.JS%20version%20of%20Parkertron.%20But%20Jankier.&font=KoHo&forks=1&issues=1&language=1&name=1&owner=1&pattern=Plus&stargazers=1&theme=Dark)
+
+<a href="https://github.com/Skullians/ParkerJS/issues/new?labels=bug&template=bug-report---.md">Report Bug .</a>
+<a href="https://github.com/Skullians/ParkerJS/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
 
 Meet **ParkerJS**.
 ParkerJS is an attempt to replicate the functionality and features of [Parkertron](https://github.com/parkervcp/parkertron), by [parkervcp](https://github.com/parkervcp) in JS (runtime Node.JS).
