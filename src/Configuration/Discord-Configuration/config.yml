@@ -9,6 +9,8 @@
 
 # This is the Discord Bot Config. It contains all the configuration for the bot.
 
+enabled: true # This bot has support for multiple uses, e.g. Discord & IRC & Slack.
+
 bot_token: "" # This is Important! It must be filled in.
 
 guild_id: "" # The Guild ID that your bot is in. Maximum 1. Must be a String (e.g. "1075368155235034433")
@@ -33,14 +35,17 @@ Settings:
 
 Presence: # Discord Presence
   enabled: true # Whether this is enabled
-  rotateInterval: 60000 # Interval (IN MILLISECONDS) that presences will be changed. If you have just one presence config then it will permanently stay on this.
+  rotateInterval: 30000 # Interval (IN MILLISECONDS) that presences will be changed. If you have just one presence config then it will permanently stay on this.
 
   presences: # You can have multiple of these.
     - presence: "support channels" # In this instance it would look like: "Watching support channels"
-      type: "Watching" # Available types: Competing / Listening / Playing / Streaming / Watching
+      type: "Watching" # Available types:  Listening / Playing / Streaming / Watching
+      status: "online" # Available types: online / idle / dnd / invisible
 
     - presence: "to messages" # In this instance, it would look like: "Listening to messages"
       type: "Listening"
+      status: "dnd"
+
 
 
   

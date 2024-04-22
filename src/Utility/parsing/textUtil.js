@@ -83,7 +83,7 @@ async function getSolutions(message, parsedContent) {
 
     } catch (error) {
         console.log(`An unexpected error occurred when parsing a message: \n${error}`.red);
-        log.log(`An error occurred when parsing a message: ` + error);
+        log.error(`An error occurred when parsing a message: ` + error);
 
         return null;
     }

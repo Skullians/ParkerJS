@@ -8,7 +8,10 @@ function init() {
         console.log("[ParkerJS] ".green + "ParkerJS is initialising.");
         
         ConfigParser.loadYAML();
-        BotHandler.init();
+        
+        if (ConfigParser.getBotConfig().enabled) {
+            BotHandler.init();
+        }
     } catch (error) {
         console.log(error);
     }
