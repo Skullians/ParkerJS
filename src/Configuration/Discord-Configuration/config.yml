@@ -30,3 +30,17 @@ Messages: # Default discord messages, e.g. for if you don't have perms for that 
 Settings:
   analysisLimit: 2 # How many solutions can be presented per message.
   analysisSplit: "\n\n\n" # If analysisLimit > 1, what will the solution messages be split by?
+
+Presence: # Discord Presence
+  enabled: true # Whether this is enabled
+  rotateInterval: 60000 # Interval (IN MILLISECONDS) that presences will be changed. If you have just one presence config then it will permanently stay on this.
+
+  presences: # You can have multiple of these.
+    - presence: "support channels" # In this instance it would look like: "Watching support channels"
+      type: "Watching" # Available types: Competing / Listening / Playing / Streaming / Watching
+
+    - presence: "to messages" # In this instance, it would look like: "Listening to messages"
+      type: "Listening"
+
+
+  

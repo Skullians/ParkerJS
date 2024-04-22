@@ -1,0 +1,14 @@
+#   _____               _                _____             __ _       
+# |  __ \             (_)              / ____|           / _(_)      
+# | |__) |_ _ _ __ ___ _ _ __   __ _  | |     ___  _ __ | |_ _  __ _ 
+# |  ___/ _` | '__/ __| | '_ \ / _` | | |    / _ \| '_ \|  _| |/ _` |
+# | |  | (_| | |  \__ \ | | | | (_| | | |___| (_) | | | | | | | (_| |
+# |_|   \__,_|_|  |___/_|_| |_|\__, |  \_____\___/|_| |_|_| |_|\__, |
+#                               __/ |                           __/ |
+#                              |___/                           |___/ 
+
+# This is the Parsing Config. It allows you to configure the image parsing feature of this bot.
+
+parsing:
+  # The bot uses 'workers', basically what controls the parsing of the text. You want to have at least 2-3 workers.
+  worker_count: 4 # The more workers, the quicker it can parse all images. The more workers, the more resources used.

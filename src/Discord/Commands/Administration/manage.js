@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder, ActivityType } = require("discord.js");
 const SQLiteManager = require("../../../Utility/db/SqliteHandler");
 const ConfigParser = require("../../../Utility/conf/ConfigParser");
 
@@ -30,6 +30,7 @@ module.exports = {
     botPermissions: [],
 
     run: async (client, interaction) => {
+
         const subCommand = interaction.options.getSubcommand();
 
         await interaction.deferReply({ ephemeral: true });

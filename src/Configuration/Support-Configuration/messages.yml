@@ -19,14 +19,15 @@ mentions:
       - "If you're having trouble, send a message in the help channel(s) and I'll do my best to help!"
 
 keywords:
-  - keyword: "help" # can be uppercase or lowercase, automatically handled.
-    reactions:
-      - 💗 # can be multiple reactions
-    response: # These are all sent in one message. It just makes it easier to configure. Every message is automatically connected. Every line is a new line.
+  - keyword: "help" # Keyword / Phrase that will be matched to a member's message. Doesn't matter about 
+    reactions: # Supports multiple reactions.
+      - 💗 # Don't want any reactions? just do reactions: ""
+    response: # These are all sent as one message. It just makes it easier to configure. Every message is automatically connected. Every line is a new line.
       - "Hey there!"
       - "I'm ParkerJS, a Discord Bot created by Skullians designed to support users!"
       - "Feel free to send any logs, error messages, or anything else and we'll do our best to help you 😄"
 
+  # a new configuration
   - keyword: "This operation was disabled" 
     reactions:
       - 💡
@@ -48,8 +49,7 @@ keywords:
       - "Run this command: `git clone https://github.com/Moonlight-Panel/Resources /var/lib/docker/volumes/moonlight/_data/resources/`"  
 
 regex:
-  - pattern: "^.+@.+$" # pattern for an email, just a test
-    reactions:
-      - 📨
+  - pattern: "^.+@.+$" # Regex pattern. This is just an example!
+    reactions: ""
     response:
       - "Looks like you sent an email."

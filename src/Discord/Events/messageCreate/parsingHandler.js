@@ -1,7 +1,8 @@
 require("colors");
-const parsingMain = require("../../../Utility/parsing/parsingMain");
 const ConfigParser = require("../../../Utility/conf/ConfigParser");
 const SQLiteHandler = require("../../../Utility/db/SqliteHandler");
+const parsingHandler = require("../../../Utility/parsing/parsingHandler");
+
 
 module.exports = async (client, message) => {
     if (message.author.bot) return;
@@ -10,10 +11,10 @@ module.exports = async (client, message) => {
 
     let listeningChannels = ConfigParser.getBotConfig().listening_channels;
     if (!listeningChannels.includes(message.channel.id)) return;
-
-    const data = await parsingMain.parseMessage(message.content, message.attachments);
+    
+    const data= await parsingHandler.handleDiscord(message.content, message.attachments);
     if (data === null) {
-        console.log(`[ParkerJS] `.green + `Did not match any keywords / phrases / patterns with message. Checking for mention.`.gray)
+        console.log(`[ParkerJS] `.green + `Did not match any keywords / phrases / patterns with message or attachments. Checking for mention.`.gray)
         return hasMentioned(message, client)
     }
     
@@ -21,6 +22,8 @@ module.exports = async (client, message) => {
     data.reactions.forEach((reaction) => {
         message.react(reaction);
     })
+
+
 
 
 }
