@@ -84,7 +84,7 @@ Distributed under the Apache-2.0 License. See [Apache-2.0 License](https://www.a
  ## Acknowledgments
 
 I cannot stress enough:
-**Thankyou [parkervcp}(https://github.com/parkervcp) for allowing me to do this. Please give them a follow, and make sure to star the original [parkertron](https://github.com/parkervcp/parkertron) project itself.**
+**Thankyou [parkervcp](https://github.com/parkervcp) for allowing me to do this. Please give them a follow, and make sure to star the original [parkertron](https://github.com/parkervcp/parkertron) project itself.**
 <3
 
 This is to acknowledge the other amazing NPM packages used in this project:
