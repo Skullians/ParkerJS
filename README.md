@@ -83,6 +83,10 @@ Don't forget to give the project a star! Thanks again!
 Distributed under the Apache-2.0 License. See [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0.txt) for more information.
  ## Acknowledgments
 
+I cannot stress enough:
+**Thankyou [parkervcp}(https://github.com/parkervcp) for allowing me to do this. Please give them a follow, and make sure to star the original [parkertron](https://github.com/parkervcp/parkertron) project itself.**
+<3
+
 This is to acknowledge the other amazing NPM packages used in this project:
 
 
@@ -91,4 +95,12 @@ This is to acknowledge the other amazing NPM packages used in this project:
 - [colors.js](https://github.com/Marak/colors.js)
 - [js-yaml](ca/js-yaml)
 - [tesseract.js](https://github.com/naptha/tesseract.js)
+
+ ## FAQ
+
+This is the FAQ, where I (hopefully) answer questions that people might have.
+No-one will probably use this project nor read it, but why not? Here goes.
+
+1. **Why?** - Why did I do this? Why the hell not? Hopefully I can include some features that parkertron (~~currently~~) does not have, such as Slack support. I mainly did it for fun. It's a nice little project.
+2. **Custom Commands** - One feature of Parkertron is the support for custom chat commands. For Discord at least, I am not currently planning on adding commands for this. If you want custom commands, use a different bot, such as carl bot, or make your own bot. For Slack and/or IRC, I will be including this functionality.
 
