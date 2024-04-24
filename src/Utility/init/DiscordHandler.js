@@ -23,9 +23,6 @@ function init() {
     log.log("Logging in Discord Bot and initialising Event Handler.")
     eventHandler(client);
     client.login(ConfigParser.getBotConfig().bot_token);
-
-    log.log("Discord Bot initialised.");
-    console.log("[ParkerJS] ".green + "Initialised Discord Bot.".grey);
 }
 
 
@@ -33,8 +30,8 @@ function init() {
 
 function checkToken() {
     if (ConfigParser.getBotConfig().bot_token === "" || ConfigParser.getBotConfig().bot_token === null || ConfigParser.getBotConfig().bot_token === undefined) {
-        log.error("Discord Bot token is empty or null! Please fix this in the config.")
-        console.error("Token is empty or null! Please rectify this in the config.".red);
+        log.error("[Discord] Discord Bot token is empty or null! Please fix this in the config.")
+        console.error("[Discord] Token is empty or null! Please rectify this in the config.".red);
         process.exit();
     }
 }

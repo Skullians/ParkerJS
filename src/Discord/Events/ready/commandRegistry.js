@@ -22,7 +22,7 @@ module.exports = async (client) => {
                 if (command.deleted) {
                     await appCommands.delete(exCommand.id);
                     log.log(`Deleted application command ${commandName}.`)
-                    console.log(`[ParkerJS] `.green + "Deleted application command [".red + `${commandName}`.yellow + `].`.red);
+                    console.log(`[ParkerJS Discord] `.green + "Deleted application command [".red + `${commandName}`.yellow + `].`.red);
 
                     continue;
                 }
@@ -31,7 +31,7 @@ module.exports = async (client) => {
                     await appCommands.edit(exCommand.id, { name: commandName, description: commandDesc, options: commandOptions });
 
                     log.log(`Edited application command ${commandName}.`)
-                    console.log(`[ParkerJS] `.green + "Edited application command [".gray + `${commandName}`.yellow + `].`.gray);
+                    console.log(`[ParkerJS Discord] `.green + "Edited application command [".gray + `${commandName}`.yellow + `].`.gray);
                 }
             } else {
                 if (command.deleted) {
@@ -42,11 +42,11 @@ module.exports = async (client) => {
                 await appCommands.create({ name: commandName, description: commandDesc, options: commandOptions });
                 log.log(`Registered application command [${commandName}].`)
 
-                console.log("[ParkerJS] ".green + `Registered application command [`.yellow + `${commandName}`.green + `].`.yellow);
+                console.log("[ParkerJS Discord] ".green + `Registered application command [`.yellow + `${commandName}`.green + `].`.yellow);
             }
         }
     } catch (err) {
-        console.log("[ParkerJS] ".green + `An unexpected occurred when registering commands: ${err}`.red);
-        log.error("COMMAND REG: " + err);
+        console.log("[ParkerJS Discord] ".green + `An unexpected occurred when registering commands: ${err}`.red);
+        log.error("DISCORD COMMAND REG: " + err);
     }
 }

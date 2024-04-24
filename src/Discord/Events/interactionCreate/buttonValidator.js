@@ -54,8 +54,8 @@ module.exports = async (client, interaction) => {
 
         await obj.run(client, interaction);
     } catch (error) {
-        log.error("[BUTTON VALIDATOR] An error occurred when validating buttons: " + error);
+        log.error("[DISCORD BUTTON VALIDATOR] An error occurred when validating buttons: " + error);
         
-        console.log(`[ParkerJS] `.green + `An unexpected error occured when validating buttons: \n${error}`.red);
+        console.log(`An unexpected error occured when validating Discord buttons: \n${error}`.red);
     }
 }

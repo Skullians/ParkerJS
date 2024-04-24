@@ -1,5 +1,5 @@
 
-const filesUtility = require("./filesUtility");
+const filesUtility = require("../../Utility/files/filesUtility");
 const path = require("path");
 
 // --- Functions --- //

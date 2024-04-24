@@ -6,7 +6,10 @@ const { ActivityType } = require("discord.js")
 let currentPresenceIndex = 0;
 
 module.exports = async (client) => {
-    console.log(`[ParkerJS] `.green + `${client.user.username} is online.`.blue);
+    console.log(`[ParkerJS Discord] `.green + `${client.user.username} is online.`.blue);
+
+    console.log("[ParkerJS Discord] ".green + "Initialised Discord Bot.".grey);
+    log.log("Discord Bot initialised.");
 
     const presences = ConfigParser.getBotConfig().Presence.presences;
     const interval = ConfigParser.getBotConfig().Presence.rotateInterval;

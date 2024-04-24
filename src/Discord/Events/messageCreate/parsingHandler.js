@@ -14,7 +14,7 @@ module.exports = async (client, message) => {
     
     const data= await parsingHandler.handleDiscord(message.content, message.attachments);
     if (data === null) {
-        console.log(`[ParkerJS] `.green + `Did not match any keywords / phrases / patterns with message or attachments. Checking for mention.`.gray)
+        console.log(`[ParkerJS Discord] `.green + `Did not match any keywords / phrases / patterns with message or attachments. Checking for mention.`.gray)
         return hasMentioned(message, client)
     }
     

@@ -22,56 +22,59 @@ async function getSolutions(message, parsedContent) {
 
         // --- TEXT PARSING --- //
 
-        for (const keywordData of configuredKeywords) { // start looping through all configured keywords
-            if (foundSolutions >= foundSolutionsLimit) break; // if amount of found solutions matches the limit then break. This will repeat for the regex loop too.
-
-            let keyword = keywordData.keyword.toLowerCase(); // into lower case
-            let reactions = keywordData.reactions; // get array of reactions if configured
-            let responses = keywordData.response; // get solutions
-
-            if (lowerCaseMessage.includes(keyword) || lowerCaseContent.includes(keyword)) {
-                log.log(`Found keyword [${keyword}] in message / attachments!`)
-                console.log(`[ParkerJS] `.green + `Found keyword [`.blue + `${keyword}`.yellow + `] in message / attachments!`.blue)
-
-                reactionsArray = mergeReactions(reactionsArray, reactions);
-                if (foundSolutions === 0) { // if no solutions have been found before, just chuck the solutions into the array.
-                    responseArray = responses.join('\n')
+        if (configuredKeywords !== undefined && configuredKeywords !== null) { // just in case they didn't configure anything
+            for (const keywordData of configuredKeywords) { // start looping through all configured keywords
+                if (foundSolutions >= foundSolutionsLimit) break; // if amount of found solutions matches the limit then break. This will repeat for the regex loop too.
+    
+                let keyword = keywordData.keyword.toLowerCase(); // into lower case
+                let reactions = keywordData.reactions; // get array of reactions if configured
+                let responses = keywordData.response; // get solutions
+    
+                if (lowerCaseMessage.includes(keyword) || lowerCaseContent.includes(keyword)) {
+                    log.log(`Found keyword [${keyword}] in message / attachments!`)
+                    console.log(`[ParkerJS] `.green + `Found keyword [`.blue + `${keyword}`.yellow + `] in message / attachments!`.blue)
+    
+                    reactionsArray = mergeReactions(reactionsArray, reactions);
+                    if (foundSolutions === 0) { // if no solutions have been found before, just chuck the solutions into the array.
+                        responseArray = responses.join('\n')
+                        continue;
+                    }
+    
+                    // if solutions have been found before, add it in, separating each solution with the configured splitter (default is \n\n\n)
+                    responseArray = responseArray + ConfigParser.getBotConfig().Settings.analysisSplit + responses.join(`\n`)
+    
+                    foundSolutions++; // bump up the found solutions
                     continue;
-                }
-
-                // if solutions have been found before, add it in, separating each solution with the configured splitter (default is \n\n\n)
-                responseArray = responseArray + ConfigParser.getBotConfig().Settings.analysisSplit + responses.join(`\n`)
-
-                foundSolutions++; // bump up the found solutions
-                continue;
-            }   
+                }   
+            }
         }
 
         // --- REGEX PARSING --- //
-
-        for (const regex of configuredPatterns) { // same as before but looping through the patterns
-            if (foundSolutions >= foundSolutionsLimit) break;
-
-            let pattern = regex.pattern;
-            let reactions = regex.reactions;
-            let responses = regex.response;
-            
-            const regexPattern = new RegExp(pattern); // in the support YAML config, the pattern is originally a string because yaml is a pain, so here we're converting it back into a regex expression.
-
-            if (regexPattern.test(lowerCaseMessage) || regexPattern.test(lowerCaseContent)) {
-                foundSolutions++; // bump up the found solutions
-
-                log.log(`Found pattern [${pattern}] in message / attachments!`)
-                console.log(`[ParkerJS] `.green + `Found pattern [`.blue + `${pattern}`.yellow + `] in message / attachments!`.blue)
-
-                reactionsArray = mergeReactions(reactionsArray, reactions);
-                if (foundSolutions === 0) {
-                    responseArray = responseArray + responses.join('\n')
+        if (configuredPatterns !== undefined && configuredPatterns !== null) {
+            for (const regex of configuredPatterns) { // same as before but looping through the patterns
+                if (foundSolutions >= foundSolutionsLimit) break;
+    
+                let pattern = regex.pattern;
+                let reactions = regex.reactions;
+                let responses = regex.response;
+                
+                const regexPattern = new RegExp(pattern); // in the support YAML config, the pattern is originally a string because yaml is a pain, so here we're converting it back into a regex expression.
+    
+                if (regexPattern.test(lowerCaseMessage) || regexPattern.test(lowerCaseContent)) {
+                    log.log(`Found pattern [${pattern}] in message / attachments!`)
+                    console.log(`[ParkerJS] `.green + `Found pattern [`.blue + `${pattern}`.yellow + `] in message / attachments!`.blue)
+    
+                    reactionsArray = mergeReactions(reactionsArray, reactions);
+                    if (foundSolutions === 0) {
+                        responseArray = responses.join('\n')
+                        continue;
+                    }
+    
+                    responseArray = responseArray + ConfigParser.getBotConfig().Settings.analysisSplit + responses.join(`\n`)
+    
+                    foundSolutions++; // bump up the found solutions
                     continue;
                 }
-
-                responseArray = responseArray + ConfigParser.getBotConfig().Settings.analysisSplit + responses.join(`\n`)
-                continue;
             }
         }
 

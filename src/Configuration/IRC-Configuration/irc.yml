@@ -1,0 +1,28 @@
+#  _____ _____   _____    _____             __ _       
+# |_   _|  __ \ / ____|  / ____|           / _(_)      
+#   | | | |__) | |      | |     ___  _ __ | |_ _  __ _ 
+#   | | |  _  /| |      | |    / _ \| '_ \|  _| |/ _` |
+#  _| |_| | \ \| |____  | |___| (_) | | | | | | | (_| |
+# |_____|_|  \_\\_____|  \_____\___/|_| |_|_| |_|\__, |
+#                                                 __/ |
+#                                                |___/ 
+
+# Welcome to the IRC Config. This is where all IRC-related configurations are located.
+
+enabled: true # Whether the IRC support feature is enabled.
+
+Connection:
+  address: 'irc.freenode.net' # Address to IRC
+  port: 6667 # IRC Port
+  ssl: false # is SSL enabled or disabled?
+
+  userName: 'ParkerJS' # actual username
+  realName: 'ParkerJS IRC Client' # realname
+  password: '' # password if needed
+
+  debug: false # If debug is enabled, pretty spammy.
+  retryCount: 3 # How many times the client will try to automatically reconnect when disconnected.
+  retryDelay: 2000 # How many milliseconds to wait before retrying to reconnect automatically when disconnected.
+
+listening_channels: ["#somechannel"] # All Channel IDs that the bot will listen to. Set to an empty array (default) to listen to all channels.
+# CHANNELS CANNOT HAVE PASSWORDS!

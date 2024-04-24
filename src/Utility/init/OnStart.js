@@ -1,6 +1,9 @@
 require("colors")
 const ConfigParser = require("../conf/ConfigParser");
-const BotHandler = require("../init/BotHandler");
+
+const DiscordHandler = require("../init/DiscordHandler");
+const IRCHandler = require("../init/IRCHandler");
+
 const log = require("../logging/generalLogging").loggingManager;
 
 function init() {
@@ -10,7 +13,10 @@ function init() {
         ConfigParser.loadYAML();
         
         if (ConfigParser.getBotConfig().enabled) {
-            BotHandler.init();
+            DiscordHandler.init();
+        }
+        if (ConfigParser.getIRCConfig().enabled) {
+            IRCHandler.init()
         }
     } catch (error) {
         console.log(error);

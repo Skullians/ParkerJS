@@ -1,5 +1,5 @@
 const path = require("path");
-const getFiles = require("./util/filesUtility");
+const getFiles = require("../Utility/files/filesUtility");
 const log = require("../Utility/logging/discordLogging").loggingManager;
 
 module.exports = (client) => {

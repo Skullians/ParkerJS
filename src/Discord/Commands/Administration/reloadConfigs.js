@@ -10,7 +10,7 @@ function delay(time) {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("reload")
-        .setDescription("Reloads the bot, the configs, etc.")
+        .setDescription("Reloads the bot, the support configs, etc.")
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild),
     
     userPermissions: [ PermissionFlagsBits.ManageGuild ],
