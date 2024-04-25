@@ -29,9 +29,13 @@ function init() {
         stripColors: true
     })
 
-    console.log(`[ParkerJS IRC] `.green + `IRC connection successful to ${info.address}. Passing to eventHandler.`)
-    log.log(`IRC connection successful to ${info.address}. Passing to eventHandler.`)
+    console.log(`[ParkerJS IRC] `.green + `Passing IRC Client to eventHandler.`.grey)
+    log.log(`Passing IRC Client to eventHandler.`)
 
+
+    client.addListener('pm', function (nick, text, message) {
+        console.log(`${nick} ${text} ${message}`)
+    })
     ev(client)
 }
 

@@ -24,5 +24,7 @@ Connection:
   retryCount: 3 # How many times the client will try to automatically reconnect when disconnected.
   retryDelay: 2000 # How many milliseconds to wait before retrying to reconnect automatically when disconnected.
 
-listening_channels: ["#somechannel"] # All Channel IDs that the bot will listen to. Set to an empty array (default) to listen to all channels.
+  prefix: ";" # Prefix for the blacklist and reload commands. Don't use '/'
+
+listening_channels: ["#yourchannel"] # All Channel IDs that the bot will listen to. Set to an empty array (default) to listen to all channels.
 # CHANNELS CANNOT HAVE PASSWORDS!

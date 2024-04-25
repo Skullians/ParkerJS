@@ -11,8 +11,8 @@ module.exports = async (client) => {
     console.log("[ParkerJS Discord] ".green + "Initialised Discord Bot.".grey);
     log.log("Discord Bot initialised.");
 
-    const presences = ConfigParser.getBotConfig().Presence.presences;
-    const interval = ConfigParser.getBotConfig().Presence.rotateInterval;
+    const presences = ConfigParser.getDiscordConfig().Presence.presences;
+    const interval = ConfigParser.getDiscordConfig().Presence.rotateInterval;
 
     await client.user.setPresence({
         activities: [{ name: presences[currentPresenceIndex].presence, type: activityTypes(presences[currentPresenceIndex].type) }],

@@ -15,7 +15,9 @@ function loadYAML() {
 
     botconfig = yaml.load(fs.readFileSync("./src/Configuration/Discord-Configuration/discord.yml", "utf8"));
     supportconfig = yaml.load(fs.readFileSync("./src/Configuration/Support-Configuration/messages.yml", "utf8"));
+
     parsingconfig = yaml.load(fs.readFileSync("./src/Configuration/Parsing-Configuration/parsing.yml", "utf8"));
+
     ircconfig = yaml.load(fs.readFileSync("./src/Configuration/IRC-Configuration/irc.yml", "utf8"))
 
     log.log("Loaded YAML Configuration Files.")
@@ -24,7 +26,7 @@ function loadYAML() {
 
 // --- Configs --- //
 
-function getBotConfig() {
+function getDiscordConfig() {
     return botconfig;
 }
 
@@ -44,7 +46,7 @@ function getIRCConfig() {
 
 module.exports = {
     loadYAML,
-    getBotConfig,
+    getDiscordConfig,
     getSupportConfig,
     getParsingConfig,
     getIRCConfig

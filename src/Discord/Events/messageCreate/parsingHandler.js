@@ -9,7 +9,7 @@ module.exports = async (client, message) => {
     if (!message.guild) return;
     if (await SQLiteHandler.isBlacklisted(message.member.id)) return;
 
-    let listeningChannels = ConfigParser.getBotConfig().listening_channels;
+    let listeningChannels = ConfigParser.getDiscordConfig().listening_channels;
     if (!listeningChannels.includes(message.channel.id)) return;
     
     const data= await parsingHandler.handleDiscord(message.content, message.attachments);
@@ -30,8 +30,9 @@ module.exports = async (client, message) => {
 
 function hasMentioned(message, client) {
     if (message.mentions.has(client.user)) {
-        ConfigParser.getSupportConfig().mentions.mention.reactions.forEach((reaction) => {
-            message.react(reaction)
+        const mentionData = ConfigParser.getSupportConfig().mentions.mention;
+        mentionData.reactions.forEach((reaction) => {
+            message.react(reaction);
         })
     }
 }

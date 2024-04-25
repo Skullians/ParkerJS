@@ -15,20 +15,20 @@ function initialiseDatabase() {
 
 async function blacklistUser(user) {
     try {
-        console.log(`[ParkerJS] `.green + `Blacklisting user [`.red + `${user.username}`.yellow + "] from receiving support.".red)
-        log.log(`Blacklisting ${user.username} from recieving support.`)
+        console.log(`[ParkerJS] `.green + `Blacklisting user [`.red + `${user}`.yellow + "] from receiving support.".red)
+        log.log(`Blacklisting ${user} from recieving support.`)
 
-        if (sql.prepare(`SELECT id FROM blacklistTable WHERE id = ?`).get(user.id)) return false;
+        if (sql.prepare(`SELECT id FROM blacklistTable WHERE id = ?`).get(user)) return false;
 
-        sql.prepare("INSERT OR REPLACE INTO blacklistTable (id) VALUES (?);").run(user.id)
+        sql.prepare("INSERT OR REPLACE INTO blacklistTable (id) VALUES (?);").run(user)
 
-        console.log(`[ParkerJS] `.green + `Successfully blacklisted user [`.red + `${user.username}`.yellow + "] from receiving support.".red)
-        log.log(`${user.username} has been blacklisted from recieving support.`)
+        console.log(`[ParkerJS] `.green + `Successfully blacklisted user [`.red + `${user}`.yellow + "] from receiving support.".red)
+        log.log(`${user} has been blacklisted from recieving support.`)
 
         return true; // essentially a successful blacklist
     } catch (error) {
-        log.error(`An error occurred when blacklisting user [${user.username} @ ${user.id}]: ${error}`)
-        console.log(`An unexpected error occurred when blacklisting user [${user.username} @ ${user.id}]: \n${error}`.red);
+        log.error(`An error occurred when blacklisting user [${user}]: ${error}`)
+        console.log(`An unexpected error occurred when blacklisting user [${user}]: \n${error}`.red);
 
         return false; // unsuccessful blacklist
     }
@@ -36,20 +36,20 @@ async function blacklistUser(user) {
 
 async function removeBlacklist(user) {
     try {
-        console.log(`[ParkerJS] `.green + `Removing blacklist of user [`.red + `${user.username}`.yellow + `].`.red)
+        console.log(`[ParkerJS] `.green + `Removing blacklist of user [`.red + `${user}`.yellow + `].`.red)
         log.log(`Removing ${user.username} from the blacklist.`)
 
-        if (!sql.prepare(`SELECT id FROM blacklistTable WHERE id = ?`).get(user.id)) return false;
+        if (!sql.prepare(`SELECT id FROM blacklistTable WHERE id = ?`).get(user)) return false;
 
-        sql.prepare("DELETE FROM blacklistTable WHERE id = ?").run(user.id);
+        sql.prepare("DELETE FROM blacklistTable WHERE id = ?").run(user);
 
-        console.log(`[ParkerJS] `.green + `Successfully removed [`.gray + `${user.username} @ ${user.id}`.yellow + `] from the blacklist.`.gray);
-        log.log(`Removed [${user.username} @ ${user.id}] from the blacklist.`);
+        console.log(`[ParkerJS] `.green + `Successfully removed [`.gray + `${user}`.yellow + `] from the blacklist.`.gray);
+        log.log(`Removed [${user}] from the blacklist.`);
 
         return true; // successful blacklist removal
     } catch (error) {
-        log.log(`An error occurred when removing [${user.username} @ ${user.id}] from the blacklist: ${error}`)
-        console.log(`An unexpected error occurred when removing [${user.username} @ ${user.id}] from the blacklist: \n${error}`.red);
+        log.log(`An error occurred when removing [${user}] from the blacklist: ${error}`)
+        console.log(`An unexpected error occurred when removing [${user}] from the blacklist: \n${error}`.red);
 
         return false; // unsuccessful blacklist removal
     }

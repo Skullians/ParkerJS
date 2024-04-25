@@ -20,8 +20,8 @@ module.exports = async (client, interaction) => {
                 log.log(`${interaction.user.username} tried to run the command ${interaction.commandName} but didn't have the correct permissions.`)
 
                 const embed = new EmbedBuilder()
-                    .setColor(ConfigParser.getBotConfig().Colors.errorColor)
-                    .setDescription(ConfigParser.getBotConfig().Messages.noPermissions)
+                    .setColor(ConfigParser.getDiscordConfig().Colors.errorColor)
+                    .setDescription(ConfigParser.getDiscordConfig().Messages.noPermissions)
                 return interaction.reply({ embeds: [embed], ephemeral: true });
             }
         }
@@ -34,8 +34,8 @@ module.exports = async (client, interaction) => {
                 log.error(`I don't have the permissions to run the command ${interaction.commandName}! All Required Permissions:\n` + obj.botPermissions);
 
                 const embed = new EmbedBuilder()
-                    .setColor(ConfigParser.getBotConfig().Colors.errorColor)
-                    .setDescription(ConfigParser.getBotConfig().Messages.botNoPermissions)
+                    .setColor(ConfigParser.getDiscordConfig().Colors.errorColor)
+                    .setDescription(ConfigParser.getDiscordConfig().Messages.botNoPermissions)
                 return interaction.reply({ embeds: [embed], ephemeral: true });
             }
         }

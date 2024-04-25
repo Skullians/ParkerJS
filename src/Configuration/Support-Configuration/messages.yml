@@ -7,7 +7,7 @@
 #                              __/ |                                __/ |
 #                             |___/                                |___/ 
 
-# This is the Message Config. It contains all the configuration for the support messages.
+# This is the Message Config for Discord. It contains all the configuration for the support messages.
 
 mentions:
   mention:
@@ -32,10 +32,10 @@ keywords:
     reactions:
       - 💡
     response:
-      - "This solution applies only if you are running **Canary**." 
-      - "Set `BotCheck` to **false** in the Moonlight Config."
-      - "\nYou can find the config at `/var/lib/docker/volumes/moonlight/_data/configs/config.json`."
-      - "Then restart Moonlight with `docker restart moonlight`."
+      - "This solution applies only if you are running Canary." 
+      - "Set `BotCheck` to false in the Moonlight Config."
+      - "\nYou can find the config at '/var/lib/docker/volumes/moonlight/_data/configs/config.json'."
+      - "Then restart Moonlight with 'docker restart moonlight'."
       - "Enjoy!"
 
   - keyword: "API rate limit exceeded"
@@ -44,9 +44,9 @@ keywords:
       - 🤔
     response:
       - "Hey, looks like you've been ratelimited by GitHub.\n"
-      - "Moonlight uses GitHub to sync its [Resources](https://github.com/Moonlight-Panel/Resources)."
+      - "Moonlight uses GitHub to sync its Resources (https://github.com/Moonlight-Panel/Resources)."
       - "If you want to fix this, you can either wait for the ratelimit to pass, or sync them manually (see below).\n"
-      - "Run this command: `git clone https://github.com/Moonlight-Panel/Resources /var/lib/docker/volumes/moonlight/_data/resources/`"  
+      - "Run this command: 'git clone https://github.com/Moonlight-Panel/Resources /var/lib/docker/volumes/moonlight/_data/resources/'"  
 
 regex:
   - pattern: "^.+@.+$" # Regex pattern. This is just an example!

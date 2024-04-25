@@ -12,7 +12,7 @@ function init() {
         
         ConfigParser.loadYAML();
         
-        if (ConfigParser.getBotConfig().enabled) {
+        if (ConfigParser.getDiscordConfig().enabled) {
             DiscordHandler.init();
         }
         if (ConfigParser.getIRCConfig().enabled) {

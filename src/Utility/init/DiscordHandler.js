@@ -15,21 +15,21 @@ const client = new Client({
 });
 
 function init() {
-    console.log("[ParkerJS] ".green + "Initialising Discord Bot...".grey);
+    console.log("[ParkerJS Discord] ".green + "Initialising Discord Bot...".grey);
     
     log.log("Checking Discord Bot Token.")
     checkToken();
 
     log.log("Logging in Discord Bot and initialising Event Handler.")
     eventHandler(client);
-    client.login(ConfigParser.getBotConfig().bot_token);
+    client.login(ConfigParser.getDiscordConfig().bot_token);
 }
 
 
 // --- Checks --- //
 
 function checkToken() {
-    if (ConfigParser.getBotConfig().bot_token === "" || ConfigParser.getBotConfig().bot_token === null || ConfigParser.getBotConfig().bot_token === undefined) {
+    if (ConfigParser.getDiscordConfig().bot_token === "" || ConfigParser.getDiscordConfig().bot_token === null || ConfigParser.getDiscordConfig().bot_token === undefined) {
         log.error("[Discord] Discord Bot token is empty or null! Please fix this in the config.")
         console.error("[Discord] Token is empty or null! Please rectify this in the config.".red);
         process.exit();

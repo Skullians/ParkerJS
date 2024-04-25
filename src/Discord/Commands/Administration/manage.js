@@ -44,29 +44,28 @@ module.exports = {
 
                 if (action === "Add") {
 
-                    if (await SQLiteManager.blacklistUser(user)) {
+                    if (await SQLiteManager.blacklistUser(user.id)) {
                         embed
-                            .setColor(ConfigParser.getBotConfig().Colors.successColor)
-                            .setDescription(`\`✅\` Successfully blacklisted ${user}. They will no longer recieve automated support.`)
+                            .setColor(ConfigParser.getDiscordConfig().Colors.successColor)
+                            .setDescription(`\`✅\` Successfully blacklisted ${user}. They will no longer receive automated support.`)
                         
                     } else {
                         embed
-                            .setColor(ConfigParser.getBotConfig().Colors.errorColor)
+                            .setColor(ConfigParser.getDiscordConfig().Colors.errorColor)
                             .setDescription(`\`❗\` This user is already blacklisted!`)
                     }
 
                     return await interaction.editReply({ embeds: [embed] });
                 } else if (action === "Remove") {
 
-                    if (await SQLiteManager.removeBlacklist(user)) {
+                    if (await SQLiteManager.removeBlacklist(user.id)) {
                         embed
-                            .setColor(ConfigParser.getBotConfig().Colors.successColor)
-                            .setDescription(`\`✅\` Successfully removed ${user} from the blacklist. They can now recieve automated support.`)
+                            .setColor(ConfigParser.getDiscordConfig().Colors.successColor)
+                            .setDescription(`\`✅\` Successfully removed ${user} from the blacklist. They can now receive automated support.`)
 
-                        return await interaction.editReply({ embeds: [embed] });
                     } else {
                         embed
-                            .setColor(ConfigParser.getBotConfig().Colors.errorColor)
+                            .setColor(ConfigParser.getDiscordConfig().Colors.errorColor)
                             .setDescription(`\`❗\` That user is not blacklisted!`)
                     }
 

@@ -20,8 +20,8 @@ module.exports = async (client, interaction) => {
                 log.log(`${interaction.user.username} tried to use the button ${interaction.customId} but didn't have the correct permissions.`)
 
                 const embed = new EmbedBuilder()
-                    .setColor(ConfigParser.getBotConfig().Colors.errorColor)
-                    .setDescription(ConfigParser.getBotConfig().Messages.noPermissions)
+                    .setColor(ConfigParser.getDiscordConfig().Colors.errorColor)
+                    .setDescription(ConfigParser.getDiscordConfig().Messages.noPermissions)
                 return interaction.reply({ embeds: [embed], ephemeral: true });
             }
         }
@@ -34,8 +34,8 @@ module.exports = async (client, interaction) => {
                 log.error(`I don't have the permissions to execute this button! ${interaction.customId}! All Required Permissions:\n` + obj.botPermissions);
 
                 const embed = new EmbedBuilder()
-                    .setColor(ConfigParser.getBotConfig().Colors.errorColor)
-                    .setDescription(ConfigParser.getBotConfig().Messages.botNoPermissions)
+                    .setColor(ConfigParser.getDiscordConfig().Colors.errorColor)
+                    .setDescription(ConfigParser.getDiscordConfig().Messages.botNoPermissions)
                 return interaction.reply({ embeds: [embed], ephemeral: true });
             }
         }
@@ -43,8 +43,8 @@ module.exports = async (client, interaction) => {
         if (interaction.message.interaction) {
             if (interaction.message.interaction.user.id !== interaction.user.id) {
                 const embed = new EmbedBuilder()
-                    .setColor(ConfigParser.getBotConfig().Colors.errorColor)
-                    .setDescription(ConfigParser.getBotConfig().Messages.notYourButton)
+                    .setColor(ConfigParser.getDiscordConfig().Colors.errorColor)
+                    .setDescription(ConfigParser.getDiscordConfig().Messages.notYourButton)
                 
                 log.info(`${interaction.user.username} tried to use a button that did not belong to them!\nOriginal owner: [${interaction.message.interaction.user.id}].`)
 

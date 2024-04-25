@@ -12,7 +12,7 @@ async function getSolutions(message, parsedContent) {
         let reactionsArray = []; // array of reactions depending on the found solutions and its configured reactions if it has any.
 
         let foundSolutions = 0; // used to compare the amount of found solutions to the configured limit per message.
-        const foundSolutionsLimit = ConfigParser.getBotConfig().Settings.analysisLimit; // get the configured limit per message;
+        const foundSolutionsLimit = ConfigParser.getDiscordConfig().Settings.analysisLimit; // get the configured limit per message;
 
         const configuredKeywords = ConfigParser.getSupportConfig().keywords; // get all configured support keywords & their configurations
         const configuredPatterns = ConfigParser.getSupportConfig().regex; // get all configured support regex patterns & their configurations
@@ -41,7 +41,7 @@ async function getSolutions(message, parsedContent) {
                     }
     
                     // if solutions have been found before, add it in, separating each solution with the configured splitter (default is \n\n\n)
-                    responseArray = responseArray + ConfigParser.getBotConfig().Settings.analysisSplit + responses.join(`\n`)
+                    responseArray = responseArray + ConfigParser.getDiscordConfig().Settings.analysisSplit + responses.join(`\n`)
     
                     foundSolutions++; // bump up the found solutions
                     continue;
@@ -70,7 +70,7 @@ async function getSolutions(message, parsedContent) {
                         continue;
                     }
     
-                    responseArray = responseArray + ConfigParser.getBotConfig().Settings.analysisSplit + responses.join(`\n`)
+                    responseArray = responseArray + ConfigParser.getDiscordConfig().Settings.analysisSplit + responses.join(`\n`)
     
                     foundSolutions++; // bump up the found solutions
                     continue;

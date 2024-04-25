@@ -7,7 +7,7 @@ const log = require("../../../Utility/logging/discordLogging").loggingManager;
 module.exports = async (client) => {
     try {
         const locCommands = commandsUtility.getLocalCommands();
-        const appCommands = await commandsUtility.getCommands(client, ConfigParser.getBotConfig().guild_id);
+        const appCommands = await commandsUtility.getCommands(client, ConfigParser.getDiscordConfig().guild_id);
 
         for (const command of locCommands) {
             const { data } = command;

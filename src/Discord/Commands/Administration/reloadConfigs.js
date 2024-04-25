@@ -19,12 +19,12 @@ module.exports = {
     run: async (client, interaction) => {
         await interaction.deferReply({ ephemeral: true });
 
-        await interaction.editReply({ content: `\`🔃\` Reloading Configs, please wait... `});
+        await interaction.editReply({ content: `\`🔄️\` Reloading Configs, please wait... `});
 
         await delay(1000);
         ConfigParser.loadYAML();
         loggerHead.reload();
 
-        await interaction.editReply({ content: `✅ Bot reloaded.`})
+        await interaction.editReply({ content: `✅ Bot reloaded.\nThis reload mainly applies to the support config.`})
     }
 }
