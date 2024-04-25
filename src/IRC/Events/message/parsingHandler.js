@@ -15,7 +15,7 @@ module.exports = async (client, username, channel, message) => {
         return hasMentioned(client, username, channel, message)
     }
 
-    client.say(channel, `@${username}\n` + data.message)
+    client.say(channel, `${username}\n` + data.message)
 }
 
 function hasMentioned(client, username, channel, message) {
@@ -27,6 +27,6 @@ function hasMentioned(client, username, channel, message) {
         log.log(`Mention found,`.yellow + ` responding with configured response.`)
         const mentionData = ConfigParser.getSupportConfig().mentions.mention;
         
-        client.say(channel, `@${username}\n` + mentionData.responses.join('\n'))
+        client.say(channel, `${username}\n` + mentionData.responses.join('\n'))
     }
 }

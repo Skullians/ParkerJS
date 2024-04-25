@@ -28,15 +28,15 @@ module.exports = async (client, username, channel, message) => {
 
             if (operation === 'add') {
                 if (await SQLiteHandler.blacklistUser(name)) {
-                    client.say(channel, `@${username}:\nSuccessfully blackisted @${name} from receiving support.`)
+                    client.say(channel, `${username}:\nSuccessfully blackisted ${name} from receiving support.`)
                 } else {
-                    client.say(channel, `@${username}:\n@${name} is already blacklisted!`)
+                    client.say(channel, `${username}:\n${name} is already blacklisted!`)
                 }
             } else if (operation === 'remove') {
                 if (await SQLiteHandler.removeBlacklist(name)) {
-                    client.say(channel, `@${username}:\nSuccessfully removed @${name} from the blacklist. They can now receive automated support.`)
+                    client.say(channel, `${username}:\nSuccessfully removed ${name} from the blacklist. They can now receive automated support.`)
                 } else {
-                    client.say(channel, `@${username}:\n@${name} is not blacklisted!`)
+                    client.say(channel, `${username}:\n${name} is not blacklisted!`)
                 }
             }
         }
